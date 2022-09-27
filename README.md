@@ -6,33 +6,33 @@ API para gerenciamento de vendas.
 ### 01 - Ações comuns
 
 - Todas as entidades devem ter um CRUD.
-- As entidades nao podem ser excluidas, apenas desabilitadas.
+- As entidades não podem ser excluídas, apenas desabilitadas.
 
 ### 02 - Controle de vendas
 
 #### Vendedor
 
-- O vendedor pode obter relatorios por data das suas vendas.
+- O vendedor pode obter relatórios por data das suas vendas.
 - O vendedor pode adicionar/cadastrar uma venda.
 - O vendedor pode editar uma venda.
 - O vendedor pode cancelar uma venda.
 
 #### Gerente
 
-- O gerente pode obter relatorios por data das vendas de um ou mais vendedores do setor.
+- O gerente pode obter relatórios por data das vendas de um ou mais vendedores do setor.
 - O gerente pode adicionar/cadastrar uma venda para um determinado vendedor.
 - O gerente pode editar uma venda de um vendedor.
 - O gerente pode cancelar uma venda de um vendedor.
 
 #### Administrador
 
-- O administrador do sistema, nao pode manipular recursos de vendas.
+- O administrador do sistema, não pode manipular recursos de vendas.
 
 ### 03 - Gerenciamento do setor
 
 #### Vendedor
 
-- Nao pode realizar alteracoes no setor.
+- Não pode realizar alterações no setor.
 
 #### Gerente
 
@@ -63,12 +63,12 @@ API para gerenciamento de vendas.
 
 ### 05 - Controle de acesso
 
-- Um usuario so podera acessar a aplicacao se estiver devidamente cadastrado e autenticado.
-- O sistema deve ter 03 niveis de acesso, sendo eles: Administrador, Gerente e Vendedor.
-- Um usuario so podera acessar recurso que o seu nivel de acesso permita.
-- Um usuario nao pode alterar o seu email.
+- Um usuario só poderá acessar a aplicação se estiver devidamente cadastrado e autenticado.
+- O sistema deve ter 03 níveis de acesso, sendo eles: Administrador, Gerente e Vendedor.
+- Um usuário só poderá acessar recursos que o seu nível de acesso permita.
+- Um usuário não pode alterar o seu email.
 
-As regras aqui descritas podem ser alteradas de acordo com o contexto em que essa aplicacao vai ser utilizada. Sinta-se a vontade para dar dicas de melhorias. 
+As regras aqui descritas podem ser alteradas de acordo com o contexto em que essa aplicação vai ser utilizada. Sinta-se a vontade para dar dicas de melhorias. 
 
 ### Ferramentas
 - ASP.NET 6 WEB API
@@ -81,4 +81,4 @@ As regras aqui descritas podem ser alteradas de acordo com o contexto em que ess
 - Permissões de acesso de acordo com regras
 - E varias funcionalidades que conseguirmos colocar em prática.
 
-Esse projeto sera criado utilizando a o SDK do dotnet na versao 6, voce pode fazer o download [aqui](https://dotnet.microsoft.com/en-us/download)
+Esse projeto será criado utilizando o SDK do dotnet na versão 6, o download pode ser feito [aqui](https://dotnet.microsoft.com/en-us/download)
