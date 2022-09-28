@@ -5,7 +5,7 @@ internal abstract class Entity
 
   protected Entity()
   {
-      Id = Guid.NewGuid();
+    Id = Guid.NewGuid();
   }
 
   protected abstract void Validate();

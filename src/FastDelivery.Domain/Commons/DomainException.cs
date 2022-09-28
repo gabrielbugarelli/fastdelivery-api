@@ -1,7 +1,8 @@
 ﻿namespace FastDelivery.Domain.Commons;
 
-internal class DomainException : Exception {
+internal class DomainException : Exception
+{
   public DomainException() { }
   public DomainException(string message) : base(message) { }
-  public DomainException(string message, Exception exception) :  base(message, exception){ }
+  public DomainException(string message, Exception exception) : base(message, exception) { }
 }
