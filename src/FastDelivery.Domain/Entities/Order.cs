@@ -1,4 +1,5 @@
-﻿using FastDelivery.Domain.Enums;
+﻿using FastDelivery.Domain.Commons;
+using FastDelivery.Domain.Enums;
 
 namespace FastDelivery.Domain.Entities;
 
@@ -10,6 +11,8 @@ internal class Order : Entity {
   public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
 
   public Order() {
+    Registration = DateTime.UtcNow;
+    Status = OrderStatus.New;
     _orderItems = new List<OrderItem>();
   }
 
@@ -18,6 +21,8 @@ internal class Order : Entity {
   }
 
   public void AddOrderItem(OrderItem orderItem) {
+    orderItem.SyncOrder(Id);
+
     if (OrderItemExists(orderItem) is var orderItemExists && orderItemExists != null) {
       orderItemExists.AddQuantity(orderItem.Quantity);
       orderItem = orderItemExists;
@@ -30,17 +35,40 @@ internal class Order : Entity {
     CalculateTotalValue();
   }
 
-  public OrderItem OrderItemExists(OrderItem orderItem) {
-    var itemExists = _orderItems.FirstOrDefault(orderItem => orderItem.ProductId == orderItem.ProductId);
+  public OrderItem OrderItemExists(OrderItem item) {
+    var itemExists = _orderItems.FirstOrDefault(orderItem => orderItem.ProductId == item.ProductId);
     return itemExists;
   }
 
+  public void AddQuantityItem(OrderItem item, int newQuantity) {
+    if (OrderItemExists(item) is var orderItemExists && orderItemExists == null) {
+      throw new Exception("Item does not exists!");
+    }
+
+    item.UpdateQuantity(newQuantity);
+    CalculateTotalValue();
+  }
+
+  public void AwaitingPayment() {
+    Status = OrderStatus.AwaitingPayment;
+  }
+
+  public void CompleteOrder() {
+    Status = OrderStatus.Completed;
+  }
+
   public void RemoveItem(OrderItem orderItem) {
-    if (OrderItemExists(orderItem) is var orderItemExists && orderItemExists != null) {
-      throw new Exception("Order item already exists!");
+    if (OrderItemExists(orderItem) is var orderItemExists && orderItemExists == null) {
+      throw new Exception("Item does not exists!");
     }
 
     _orderItems.Remove(orderItemExists);
     CalculateTotalValue();
+  }
+
+  protected override void Validate() {
+    if(Registration.Date < DateTime.UtcNow.Date) {
+      throw new DomainException("Invalid date.");
+    }
   }
 }
