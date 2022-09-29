@@ -1,7 +1,7 @@
 ﻿namespace FastDelivery.Domain.Commons;
-internal abstract class Entity
+public abstract class Entity
 {
-  protected Guid Id { get; private set; }
+  public Guid Id { get; private set; }
 
   protected Entity()
   {

@@ -3,7 +3,7 @@ using FastDelivery.Domain.Enums;
 
 namespace FastDelivery.Domain.Entities;
 
-internal class Order : Entity
+public class Order : Entity
 {
   public DateTime Registration { get; private set; }
   public decimal TotalValue { get; private set; }

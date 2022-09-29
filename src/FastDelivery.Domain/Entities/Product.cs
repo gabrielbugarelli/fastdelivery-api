@@ -3,8 +3,10 @@ using FastDelivery.Domain.Enums;
 
 namespace FastDelivery.Domain.Entities;
 
-internal class Product : Entity {
-  public Product(string name, string description, decimal value, ProductType type, int quantityStock) {
+public class Product : Entity
+{
+  public Product(string name, string description, decimal value, ProductType type, int quantityStock)
+  {
     Name = name;
     Description = description;
     Active = true;
@@ -28,28 +30,35 @@ internal class Product : Entity {
   public void Disable() => Active = false;
   public void ChangeType(ProductType newType) => Type = newType;
 
-  public void ChangeDescription(string newDescription) {
-    if (string.IsNullOrWhiteSpace(newDescription)) {
+  public void ChangeDescription(string newDescription)
+  {
+    if (string.IsNullOrWhiteSpace(newDescription))
+    {
       throw new DomainException("Invalid description.");
     }
 
     Description = newDescription;
   }
 
-  public void ChangeName(string name) {
-    if (string.IsNullOrWhiteSpace(name)) {
+  public void ChangeName(string name)
+  {
+    if (string.IsNullOrWhiteSpace(name))
+    {
       throw new DomainException("Invalid name.");
     }
 
     Name = name;
   }
 
-  public void DebitStock(int quantity) {
-    if (quantity < 0) {
+  public void DebitStock(int quantity)
+  {
+    if (quantity < 0)
+    {
       throw new DomainException("Quantity invalid.");
     }
 
-    if (!HaveStock(quantity)) {
+    if (!HaveStock(quantity))
+    {
       throw new DomainException("Not have stock!");
     }
 
@@ -58,28 +67,35 @@ internal class Product : Entity {
 
   public bool HaveStock(int stock) => stock >= QuantityStock;
 
-  public void AddStock(int quantity) {
+  public void AddStock(int quantity)
+  {
     QuantityStock += quantity;
   }
 
-  protected override void Validate() {
-    if (string.IsNullOrWhiteSpace(Name)) {
+  protected override void Validate()
+  {
+    if (string.IsNullOrWhiteSpace(Name))
+    {
       throw new DomainException("Name cannot be empty!");
     }
 
-    if (string.IsNullOrWhiteSpace(Description)) {
+    if (string.IsNullOrWhiteSpace(Description))
+    {
       throw new DomainException("Description cannot be empty!");
     }
 
-    if (Value <= 0) {
+    if (Value <= 0)
+    {
       throw new DomainException("The value cannot be less than or equal to zero!");
     }
 
-    if (Registration.Date < DateTime.UtcNow.Date) {
+    if (Registration.Date < DateTime.UtcNow.Date)
+    {
       throw new DomainException("The product cannot be registered on a retroactive date!");
     }
 
-    if(QuantityStock <= 0) {
+    if (QuantityStock <= 0)
+    {
       throw new DomainException("The quantity stock cannot be less than or equal to zero!");
     }
   }

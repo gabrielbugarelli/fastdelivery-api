@@ -1,5 +1,6 @@
 ﻿namespace FastDelivery.Domain.Enums;
-internal enum ProductType {
+public enum ProductType
+{
   Cell,
   Computer
 }

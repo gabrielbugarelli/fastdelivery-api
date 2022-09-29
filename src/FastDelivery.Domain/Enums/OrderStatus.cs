@@ -1,5 +1,6 @@
 ﻿namespace FastDelivery.Domain.Enums;
-internal enum OrderStatus {
+public enum OrderStatus
+{
   New,
   AwaitingPayment,
   Completed
