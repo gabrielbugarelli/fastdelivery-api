@@ -19,7 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Mediatr configuration
 builder.Services.AddMediatR(typeof(Program));
-builder.Services.AddScoped<IRequestHandler<CreateProductRequest, bool>, ProductCommandHandler>();
+builder.Services.AddScoped<IRequestHandler<CreateProductRequest, bool>, ProductRequestHandler>();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
