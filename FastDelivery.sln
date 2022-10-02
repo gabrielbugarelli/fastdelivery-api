@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDelivery.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDelivery.Infrastructure", "src\FastDelivery.Infrastructure\FastDelivery.Infrastructure.csproj", "{CDACFACD-CD10-4421-8DB3-1709AE7F9EF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDelivery.API", "src\FastDelivery.API\FastDelivery.API.csproj", "{F618EAF9-8AF5-45BF-B454-745F26FACE11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDelivery.WEB", "src\FastDelivery.WEB\FastDelivery.WEB.csproj", "{F618EAF9-8AF5-45BF-B454-745F26FACE11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

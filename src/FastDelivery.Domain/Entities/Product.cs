@@ -1,10 +1,18 @@
-﻿using FastDelivery.Domain.Commons;
+﻿using FastDelivery.Core.DomainObjects;
 using FastDelivery.Domain.Enums;
 
 namespace FastDelivery.Domain.Entities;
 
 public class Product : Entity
 {
+  public string Name { get; private set; }
+  public string Description { get; private set; }
+  public decimal Value { get; private set; }
+  public bool Active { get; private set; }
+  public DateTime Registration { get; private set; }
+  public ProductType Type { get; private set; }
+  public int QuantityStock { get; private set; }
+
   public Product(string name, string description, decimal value, ProductType type, int quantityStock)
   {
     Name = name;
@@ -17,14 +25,6 @@ public class Product : Entity
 
     Validate();
   }
-
-  public string Name { get; private set; }
-  public string Description { get; private set; }
-  public decimal Value { get; private set; }
-  public bool Active { get; private set; }
-  public DateTime Registration { get; private set; }
-  public ProductType Type { get; private set; }
-  public int QuantityStock { get; private set; }
 
   public void Enable() => Active = true;
   public void Disable() => Active = false;

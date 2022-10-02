@@ -1,4 +1,4 @@
-﻿namespace FastDelivery.Domain.Commons;
+﻿namespace FastDelivery.Core.DomainObjects;
 
 public class DomainException : Exception
 {

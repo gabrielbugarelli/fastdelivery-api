@@ -1,4 +1,4 @@
-﻿namespace FastDelivery.Domain.Commons;
+﻿namespace FastDelivery.Core.DomainObjects;
 public abstract class Entity
 {
   public Guid Id { get; private set; }

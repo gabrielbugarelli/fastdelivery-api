@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace FastDelivery.API.Controllers;
+namespace FastDelivery.WEB.Controllers;
 
 [ApiController]
 public abstract class MainController : ControllerBase

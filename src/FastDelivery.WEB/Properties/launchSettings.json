@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "FastDelivery.API": {
+    "FastDelivery.WEB": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

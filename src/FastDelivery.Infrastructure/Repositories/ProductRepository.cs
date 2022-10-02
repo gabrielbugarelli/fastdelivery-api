@@ -5,14 +5,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FastDelivery.Infrastructure.Repositories;
 
-public class ProductRepository : IProductRepository {
+public class ProductRepository : IProductRepository
+{
   private readonly ApplicationDbContext _applicationDbContext;
 
-  public ProductRepository(ApplicationDbContext applicationDbContext) {
+  public ProductRepository(ApplicationDbContext applicationDbContext)
+  {
     _applicationDbContext = applicationDbContext;
   }
 
-  public async Task<IEnumerable<Product>> FindAllAsync() {
+  public async Task Create(Product product)
+  {
+    await _applicationDbContext.Products.AddAsync(product);
+    await _applicationDbContext.SaveChangesAsync();
+  }
+
+  public async Task<IEnumerable<Product>> FindAllAsync()
+  {
     var products = await _applicationDbContext.Products
       .Where(product => product.Active == true)
       .ToListAsync();
