@@ -79,6 +79,5 @@ As regras aqui descritas podem ser alteradas de acordo com o contexto em que ess
 - Autorização
 - JWT
 - Permissões de acesso de acordo com regras
-- E varias funcionalidades que conseguirmos colocar em prática.
 
 Esse projeto será criado utilizando o SDK do dotnet na versão 6, o download pode ser feito [aqui](https://dotnet.microsoft.com/en-us/download)
