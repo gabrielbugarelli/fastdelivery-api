@@ -1,4 +1,4 @@
-﻿using FastDelivery.Core.DomainObjects;
+﻿using FastDelivery.Domain.DomainObjects;
 
 namespace FastDelivery.Domain.Entities;
 

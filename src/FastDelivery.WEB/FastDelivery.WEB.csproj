@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FastDelivery.Infrastructure\FastDelivery.Infrastructure.csproj" />
-    <ProjectReference Include="..\FastDelivery.Core\FastDelivery.Core.csproj" />
     <ProjectReference Include="..\FastDelivery.Application\FastDelivery.Application.csproj" />
   </ItemGroup>
 </Project>

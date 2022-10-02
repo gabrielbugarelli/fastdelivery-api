@@ -4,7 +4,7 @@ using MediatR;
 
 namespace FastDelivery.Application.Services.ProductHandler;
 
-public class ProductCommandHandler : IRequestHandler<CreateProductCommand, bool>
+public class ProductCommandHandler : IRequestHandler<CreateProductRequest, bool>
 {
   private readonly IProductRepository _productRepository;
 
@@ -13,7 +13,7 @@ public class ProductCommandHandler : IRequestHandler<CreateProductCommand, bool>
     _productRepository = productRepository;
   }
 
-  public async Task<bool> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+  public async Task<bool> Handle(CreateProductRequest request, CancellationToken cancellationToken)
   {
     var product = new Product(request.Name, request.Description, request.Value, request.Type, request.QuantityStock);
     await _productRepository.Create(product);

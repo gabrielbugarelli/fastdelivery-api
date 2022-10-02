@@ -1,6 +1,5 @@
 using FastDelivery.Application.Services.ProductHandler;
-using FastDelivery.Core.Mediatr;
-using FastDelivery.Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastDelivery.WEB.Controllers;
@@ -9,16 +8,16 @@ namespace FastDelivery.WEB.Controllers;
 [Route("api/products")]
 public class ProductsController : MainController
 {
-  private readonly IMediatrHandler _handler;
+  private readonly IMediator _mediator;
 
-  public ProductsController(IMediatrHandler handler)
+  public ProductsController(IMediator mediator)
   {
-    _handler = handler;
+    _mediator = mediator;
   }
 
   [HttpPost]
-  public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
+  public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest command)
   {
-    return Ok(await _handler.SendCommand(command));
+    return Ok(await _mediator.Send(command));
   }
 }
