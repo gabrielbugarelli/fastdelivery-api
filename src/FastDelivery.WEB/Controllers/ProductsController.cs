@@ -16,8 +16,8 @@ public class ProductsController : MainController
   }
 
   [HttpPost]
-  public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest command)
+  public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest request)
   {
-    return Ok(await _mediator.Send(command));
+    return Ok(await _mediator.Send(request));
   }
 }

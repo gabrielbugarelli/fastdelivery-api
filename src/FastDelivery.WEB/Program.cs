@@ -1,3 +1,4 @@
+using FastDelivery.Application.NotificationErros;
 using FastDelivery.Application.Services.ProductHandler;
 using FastDelivery.Domain.Interfaces.Repositories;
 using FastDelivery.Infrastructure.Contexts;
@@ -21,6 +22,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddScoped<IRequestHandler<CreateProductRequest, bool>, ProductRequestHandler>();
 
+// Notification Errors
+builder.Services.AddScoped<INotificationHandler<NotificationError>, NotificationErrorHandler>();
+
+//Repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
