@@ -11,7 +11,6 @@ public class ProductRequestHandler : IRequestHandler<CreateProductRequest, bool>
   private readonly IProductRepository _productRepository;
   private readonly IMediator _mediator;
 
-
   public ProductRequestHandler(IProductRepository productRepository, IMediator mediator)
   {
     _mediator = mediator;

@@ -11,9 +11,19 @@ public class NotificationErrorHandler : INotificationHandler<NotificationError>
     _errors = new List<NotificationError>();
   }
 
-  async public Task Handle(NotificationError notification, CancellationToken cancellationToken)
+  public async Task Handle(NotificationError notification, CancellationToken cancellationToken)
   {
     _errors.Add(notification);
     await Task.CompletedTask;
+  }
+
+  public IEnumerable<NotificationError> GetErrors()
+  {
+    return _errors;
+  }
+
+  public bool ErrorsExists()
+  {
+    return _errors.Any();
   }
 }

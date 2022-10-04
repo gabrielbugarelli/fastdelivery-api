@@ -25,6 +25,6 @@ public class ProductRequestValidator : AbstractValidator<CreateProductRequest>
       .GreaterThan(0).WithMessage("Quantity stock must be greater than zero");
 
     RuleFor(product => product.Type)
-      .NotEmpty().WithMessage("Type is required");
+      .NotNull().WithMessage("Type is required");
   }
 }

@@ -1,3 +1,4 @@
+using FastDelivery.Application.NotificationErros;
 using FastDelivery.Application.Services.ProductHandler;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -8,16 +9,22 @@ namespace FastDelivery.WEB.Controllers;
 [Route("api/products")]
 public class ProductsController : MainController
 {
-  private readonly IMediator _mediator;
 
-  public ProductsController(IMediator mediator)
+  public ProductsController(IMediator mediator, INotificationHandler<NotificationError> notificationHandler) : base(mediator, notificationHandler)
   {
-    _mediator = mediator;
+
   }
 
   [HttpPost]
   public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest request)
   {
-    return Ok(await _mediator.Send(request));
+    await Mediator.Send(request);
+
+    if (InvalidProcess())
+    {
+      return BadRequest(GetErrors());
+    }
+
+    return Ok();
   }
 }
